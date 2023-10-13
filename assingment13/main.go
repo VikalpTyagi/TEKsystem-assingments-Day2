@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
-	// "io/ioutil"
+	"strings"
 	"os"
 )
 
 func main() {
-	file, err :=os.Create("a.txt")
+	fileName:= "sample.txt"
+	file, err :=os.Create(fileName)
 	if err != nil {
 			fmt.Println("Error found while creation: ", err)
 			return
@@ -21,7 +22,16 @@ func main() {
 	//This will tell us how many spaces we have use
 	// fmt.Println(something)
 	_= something
+	byteSlice,err:=os.ReadFile(fileName)
+	if err != nil {
+		fmt.Println("Error found while reading content: ", err)
+		return
+	}
+	str:=string(byteSlice)
+	fmt.Println("count is: ",countFile(strings.Fields(str)))
 
 }
 
-func 
+func countFile(content []string) int{
+return len(content)
+}
