@@ -19,7 +19,7 @@ func main() {
 		fmt.Println("Error found while writing: ", err)
 		return
 	}
-	//This will tell us how many spaces we have use
+	//This will tell us how many  we have use
 	// fmt.Println(something)
 	_= something
 	byteSlice,err:=os.ReadFile(fileName)
@@ -28,7 +28,13 @@ func main() {
 		return
 	}
 	str:=string(byteSlice)
-	fmt.Println("count is: ",countFile(strings.Fields(str)))
+	content := strings.Fields(str)
+	if len(content) ==0{
+		fmt.Println("file is empty or filled with white spaces")
+		return
+	}
+	fmt.Println("content",content)
+	fmt.Println("count is: ",countFile(content))
 
 }
 
