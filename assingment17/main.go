@@ -40,7 +40,7 @@ func main() {
 	http.ListenAndServe(":8080", nil)
 }
 
-var ErrDataNotPresent = errors.New("Data not avilable in database")
+var ErrDataNotPresent = errors.New("data not avilable in database")
 
 func stuExisit(studentId uint64) (any, error) {
 	data, ok := stuDatabase.Load(studentId)
@@ -93,8 +93,9 @@ func GetStudents(w http.ResponseWriter, r *http.Request) {
 	w.Write(stuJson)
 }
 
-func MidLogger(http.HandlerFunc) http.HandlerFunc {
+func MidLogger(next http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		log.Println("I don't know how to writye this logic")
+		log.Println("I don't know how to write this logic")
+		next(w,r)
 	}
 }
